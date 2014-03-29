@@ -1,10 +1,10 @@
 FROM ubuntu
 MAINTAINER Roth Mathieu "mathieu_roth@hotmail.fr"
 RUN echo deb http://archive.ubuntu.com/ubuntu precise universe >> /etc/apt/sources.list
-RUN sudo apt-get update
+RUN  apt-get update
 ADD http://mirrors.jenkins-ci.org/war/1.556/jenkins.war /opt/jenkins.war
-RUN sudo apt-get update
-RUN sudo apt-get install jenkins
+RUN  apt-get update
+RUN  apt-get install jenkins
 ENTRYPOINT ["java", "-jar", "/opt/jenkins.war"]
 EXPOSE 8080
 VOLUME ["/jenkins"]
