@@ -1,7 +1,8 @@
 FROM ubuntu
 MAINTAINER Roth Mathieu "mathieu_roth@hotmail.fr"
-RUN wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key && sudo apt-key add -
-ADD sudo sh -c echo deb http://pkg.jenkins-ci.org/debian binary/ >> /etc/apt/sources.list.d/jenkins.list
+RUN echo deb http://archive.ubuntu.com/ubuntu precise universe >> /etc/apt/sources.list
+RUN sudo apt-get update
+ADD http://mirrors.jenkins-ci.org/war/1.556/jenkins.war /opt/jenkins.war
 RUN sudo apt-get update
 RUN sudo apt-get install jenkins
 ENTRYPOINT ["java", "-jar", "/opt/jenkins.war"]
