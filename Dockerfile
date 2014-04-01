@@ -5,4 +5,3 @@ FROM ubuntu
  RUN  apt-get -y install php5-fpm
 
 EXPOSE 9000
-ENTRYPOINT ["php-fpm","-F"]
