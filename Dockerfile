@@ -1,8 +1,8 @@
 FROM ubuntu
  MAINTAINER Roth Mathieu "mathieu_roth@hotmail.fr"
  RUN echo deb http://archive.ubuntu.com/ubuntu precise universe >> /etc/apt/sources.list
- RUN sudo apt-get update
- RUN sudo aptitude -y install php5-fpm php5-cgi php-pear php5-memcache php-apc
+ RUN  apt-get update
+ RUN  apt-get -y install php5-fpm
 RUN sed -i 's/;extension=gd.so/extension=gd.so/g' /etc/php/php.ini
 RUN sed -i 's/;extension=iconv.so/extension=iconv.so/g' /etc/php/php.ini
 RUN sed -i 's/;extension=mcrypt.so/extension=mcrypt.so/g' /etc/php/php.ini
