@@ -6,7 +6,7 @@ FROM ubuntu
 RUN ln -s /usr/sbin/php5-fpm /usr/sbin/php-fpm
 RUN sed -i 's/;daemonize = yes/daemonize = no/g' /etc/php5/fpm/php-fpm.conf
 ADD www.conf /etc/php5/fpm/pool.d/
-ADD index.php /var/www
+ADD index.php /var/www/
 EXPOSE 9000
 CMD ["php-fpm"]
 
