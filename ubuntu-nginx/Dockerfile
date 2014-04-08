@@ -19,10 +19,7 @@ RUN rm -rf /usr/share/nginx/www
 RUN mv /usr/share/nginx/wordpress /usr/share/nginx/www
 RUN chown -R www-data:www-data /usr/share/nginx/www
 
-# Wordpress Initialization and Startup Script
-ADD ./start.sh /start.sh
-RUN chmod 755 /start.sh
 EXPOSE 80
 
-CMD ["/bin/bash", "/start.sh",nginx -c /etc/nginx/nginx.conf]
+CMD ["/bin/bash",nginx -c /etc/nginx/nginx.conf]
 
