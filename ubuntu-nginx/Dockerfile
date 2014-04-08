@@ -12,7 +12,7 @@ RUN mkdir -p /var/www
 RUN echo "<h1>Hello World</h1>" > /var/www/index.html
 
 ADD nginx.conf /etc/nginx/
-ADD upstream.conf /etc/nginx/
+
 
 EXPOSE 80
 CMD nginx -c /etc/nginx/nginx.conf
