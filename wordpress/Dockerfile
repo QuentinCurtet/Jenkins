@@ -1,7 +1,7 @@
 FROM komljen/php-apache
 MAINTAINER Alen Komljen <alen.komljen@live.com>
 
-ENV WP_PASS aeshiethooghahtu4Riebooquae6Ithe
+ENV WP_PASS wordpress
 ENV WP_USER wordpress
 ENV WP_DB wordpress
 ENV APP_ROOT /var/www
@@ -15,5 +15,4 @@ ADD start.sh start.sh
 VOLUME ["/var/www"]
 
 EXPOSE 80
-RUN rm /usr/sbin/policy-rc.d
 CMD ["/start.sh"]
