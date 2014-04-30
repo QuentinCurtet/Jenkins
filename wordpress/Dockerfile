@@ -1,18 +1,20 @@
-FROM komljen/php-apache
-MAINTAINER Alen Komljen <alen.komljen@live.com>
 
-ENV WP_PASS wordpress
-ENV WP_USER wordpress
-ENV WP_DB wordpress
-ENV APP_ROOT /var/www
+FROM ubuntu
+MAINTAINER antoine.morbois@gmail.com
 
-ADD http://wordpress.org/latest.tar.gz wordpress.tar.gz
-RUN tar xzf wordpress.tar.gz -C $APP_ROOT --strip-components 1
-RUN rm wordpress.tar.gz
+RUN echo "deb http://archive.ubuntu.com/ubuntu/ raring main universe" >> /etc/apt/sources.list
 
-ADD start.sh start.sh
+RUN apt-get update
+RUN apt-get install -y nano wget dialog net-tools
+RUN apt-get install -y nginx git vsftpd curl npm
 
-VOLUME ["/var/www"]
+RUN rm -v /etc/nginx/nginx.conf
+RUN mkdir  /var/www/
+RUN cd /var/www/; git clone https://github.com/WordPress/WordPress 
+
+
+ADD nginx.conf /etc/nginx/
+#ADD upstream.conf /etc/nginx/
 
 EXPOSE 80
-CMD ["/start.sh"]
+CMD nginx -c /etc/nginx/nginx.conf
