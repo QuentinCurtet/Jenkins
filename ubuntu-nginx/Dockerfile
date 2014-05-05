@@ -10,6 +10,7 @@ RUN apt-get install -y nginx
 RUN rm -v /etc/nginx/nginx.conf
 RUN mkdir -p /var/www
 RUN echo "<h1>Hello World</h1>" > /var/www/index.html
+RUN cd /var/www/; git clone https://github.com/WordPress/WordPress 
 ADD nginx.conf /etc/nginx/
 
 
