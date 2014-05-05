@@ -1,7 +1,5 @@
 
 FROM ubuntu
-MAINTAINER antoine.morbois@gmail.com
-
 RUN echo "deb http://archive.ubuntu.com/ubuntu/ raring main universe" >> /etc/apt/sources.list
 
 RUN apt-get update
